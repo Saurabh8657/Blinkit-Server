@@ -6,13 +6,14 @@ const productSchema = new mongoose.Schema({
     image: {type: String, required: true},
     price: {type: Number, required: true},
     discountPrice: {type: Number, required: true},
-    quantity: {type: Number, required: true},
+    quantity: {type: String, required: true},
     category: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Category"
+        ref: "Category",
+        req: true
     }
 })
 
-const Category = mongoose.model("Category", categorySchema)
+const Product = mongoose.model("Product", productSchema)
 
-export default Category
+export default Product
